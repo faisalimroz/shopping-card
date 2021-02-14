@@ -43,12 +43,12 @@
                      </div>
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button class="btn btn-default"><i class="fas fa-minus"></i></button>
-                           <input type="text" class="form-control text-center" value="1">
-                           <button class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           <button id="minusButtons"class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input id="addValues"type="text" class="form-control text-center" value="1">
+                           <button id="plusButtons" class="btn btn-default"><i class="fas fa-plus"></i></button>
 
                         </div>
-                        <h5>$59</h5>
+                        <h5>$<span id="addAmounts">1200</span></h5>
                         <img src="images/remove.png" alt="" class="remove-item">
                      </div>
                   </div>
@@ -93,6 +93,21 @@
           const subTotalNumber = readSubtotal+ 1219;
           document.getElementById("subtotal").innerText= subTotalNumber;       
       })
+      const plusButtons=document.getElementById("plusButtons");
+      plusButtons.addEventListener("click",function(){
+         const values = document.getElementById("addValues").value;
+          const newValues  = parseFloat(values);
+          const total = newValues+ 1;
+          document.getElementById("addValues").value= total;
+          const readAmount= document.getElementById("addAmounts").innerText;
+          const readAmountNumber= parseFloat(readAmount);
+          const totalReadAmount= readAmountNumber+ 1200;
+          document.getElementById("addAmounts").innerText= totalReadAmount; 
+          const subTotal= document.getElementById("subtotal").innerText;
+          const readSubtotal= parseFloat(subTotal);
+          const subTotalNumber = readSubtotal+ 1200;
+          document.getElementById("subtotal").innerText= subTotalNumber;       
+      })
       const minusButton=document.getElementById("minusButton");
       minusButton.addEventListener("click",function(){
          const values = document.getElementById("addValue").value;
@@ -106,6 +121,22 @@
           const subTotal= document.getElementById("subtotal").innerText;
           const readSubtotal= parseFloat(subTotal);
           const subTotalNumber = readSubtotal-1219;
+          document.getElementById("subtotal").innerText= subTotalNumber;  
+        
+      })
+      const minusButtons=document.getElementById("minusButtons");
+      minusButtons.addEventListener("click",function(){
+         const values = document.getElementById("addValues").value;
+          const newValues  = parseFloat(values);
+          const total = newValues-1;
+          document.getElementById("addValues").value= total;
+          const readAmount= document.getElementById("addAmounts").innerText;
+          const readAmountNumber= parseFloat(readAmount);
+          const totalReadAmount= readAmountNumber- 1200;
+          document.getElementById("addAmounts").innerText= totalReadAmount;  
+          const subTotal= document.getElementById("subtotal").innerText;
+          const readSubtotal= parseFloat(subTotal);
+          const subTotalNumber = readSubtotal-1200;
           document.getElementById("subtotal").innerText= subTotalNumber;  
         
       })
